@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game js-game">
+        <ul class="js-cards-list cards-list"></ul>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Front</div>
+                <div class="card-back">Back</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="start-game js-start-game">
+        <button class="start js-start">розпочати гру</button>
+    </div>
+
+    <div class="chest-container">
+
+        <!-- РУЛЕТКА -->
+        <div class="roulette-wrapper" id="rouletteWrapper">
+            <div class="cards-strip" id="cardsStrip"></div>
+        </div>
+
+        <!-- СКРИНЯ -->
+        <div class="chest-img" id="chestBtn">
+            <div class="chest-lid"></div>
+            <div class="chest-base"></div>
+        </div>
+
+    </div>
+
+    <script type="module" src="script.js">
+    </script>
+</body>
+
+</html>
