@@ -221,15 +221,19 @@ async function openChest() {
   }
 
   // 2. підготовка рулетки
+  const rouletteWrapper = document.getElementById("rouletteWrapper");
+  const cardsStrip = document.getElementById("cardsStrip");
+
   rouletteWrapper.style.display = "block";
   cardsStrip.style.transition = "none";
   cardsStrip.style.transform = "translateY(0)";
   cardsStrip.innerHTML = "";
 
   const totalItems = 20;
+  const winnerPosition = totalItems - 3; // переможець — третя з кінця
   const randomIndices = [];
 
-  // 3. створення стрічки
+  // 3. створення стрічки карток
   for (let i = 0; i < totalItems; i++) {
     const randomIndex = Math.floor(Math.random() * my_cards.length);
     randomIndices.push(randomIndex);
@@ -240,26 +244,27 @@ async function openChest() {
     cardsStrip.appendChild(img);
   }
 
-  // 4. запуск анімації
+  // 4. запуск анімації (прокрутка вниз)
   setTimeout(() => {
     const cardHeight = 200;
-    const finalOffset = (totalItems - 1) * cardHeight;
+    // прокручуємо так, щоб переможець потрапив у центр вікна
+    const finalOffset = winnerPosition * cardHeight;
 
-    cardsStrip.style.transition = "transform 3s cubic-bezier(0.2, 0.8, 0.3, 1)";
+    cardsStrip.style.transition = "transform 3s cubic-bezier(0.15, 0.85, 0.25, 1)";
     cardsStrip.style.transform = `translateY(-${finalOffset}px)`;
   }, 50);
 
-  // 5. завершення
+  // 5. завершення — показуємо переможця
   setTimeout(() => {
     rouletteWrapper.style.display = "none";
 
-    const winnerIndex = randomIndices[totalItems - 1];
+    const winnerIndex = randomIndices[winnerPosition];
     const winnerData = my_cards[winnerIndex];
 
     const html = getCardsCardHTML(winnerData);
     cardsListEl.insertAdjacentHTML("beforeend", html);
 
-    // закрили скриню
+    // закрити скриню
     chestBtn.classList.remove("open");
 
     setTimeout(() => {
@@ -267,5 +272,7 @@ async function openChest() {
     }, 500);
 
     console.log("Ви виграли:", winnerData.name);
-  }, 4500);
+  }, 4200);
 }
+
+chestBtn.onclick = openChest;
