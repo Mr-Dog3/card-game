@@ -10,7 +10,6 @@
 
 <body>
     <div class="game js-game">
-        <ul class="js-cards-list cards-list"></ul>
 
         <!-- <div class="card">
             <div class="card-inner">
@@ -24,17 +23,21 @@
         <button class="start js-start">розпочати гру</button>
     </div>
 
-    <div class="chest-container">
+    <div class="game-layout">
 
-        <!-- РУЛЕТКА -->
-        <div class="roulette-wrapper" id="rouletteWrapper">
-            <div class="cards-strip" id="cardsStrip"></div>
-        </div>
+        <!-- КАРТКИ (зліва) -->
+        <ul class="js-cards-list cards-list"></ul>
 
-        <!-- СКРИНЯ -->
-        <div class="chest-img" id="chestBtn">
-            <div class="chest-lid"></div>
-            <div class="chest-base"></div>
+        <!-- СКРИНЯ + РУЛЕТКА -->
+        <div class="chest-container">
+            <div class="roulette-wrapper" id="rouletteWrapper">
+                <div class="cards-strip" id="cardsStrip"></div>
+            </div>
+
+            <div class="chest-img" id="chestBtn">
+                <div class="chest-lid"></div>
+                <div class="chest-base"></div>
+            </div>
         </div>
 
     </div>

@@ -1,10 +1,11 @@
 .cards-list {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 300px;
   font-size: 23px;
-  gap: 50px;
+  gap: 15px;
 }
 
 ul,
@@ -117,9 +118,16 @@ p {
   position: relative;
 }
 
+.game-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+}
+
 /* Підсвітка переможця (центральна лінія) */
 .roulette-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
