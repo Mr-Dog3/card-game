@@ -169,13 +169,13 @@ const response = await fetch(`${API_URL}/cards`);
 const my_cards = await response.json();
 console.log(my_cards);
 
-function flipCard(event) {
-  const card = document.querySelector(".card");
-  card.classList.toggle("flipped");
-  console.log(event);
-}
+// function flipCard(event) {
+//   const card = document.querySelector(".card");
+//   card.classList.toggle("flipped");
+//   console.log(event);
+// }
 
-document.querySelector(".card").addEventListener("click", flipCard);
+// document.querySelector(".card").addEventListener("click", flipCard);
 
 function startGame() {
   document.querySelector(".js-start-game").style.display = "none";
@@ -250,7 +250,8 @@ async function openChest() {
     // прокручуємо так, щоб переможець потрапив у центр вікна
     const finalOffset = winnerPosition * cardHeight;
 
-    cardsStrip.style.transition = "transform 3s cubic-bezier(0.15, 0.85, 0.25, 1)";
+    cardsStrip.style.transition =
+      "transform 3s cubic-bezier(0.15, 0.85, 0.25, 1)";
     cardsStrip.style.transform = `translateY(-${finalOffset}px)`;
   }, 50);
 
